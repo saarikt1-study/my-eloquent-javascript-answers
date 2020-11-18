@@ -1,4 +1,4 @@
-const range = (start, end, step = 1) => {
+const range = (start, end, step = start < end ? 1 : -1) => {
     let array = []
     if (step < 0) {
         for (let i = start; i >= end; i += step) {
@@ -13,15 +13,15 @@ const range = (start, end, step = 1) => {
 }
 
 console.log(range(1, 10, 2))
-console.log(range(5, 2, -1))
+console.log(range(5, 2, -2))
+console.log(range(5, 2))
 
-const sum = (arrayOfNumbers) => {
-    let sum = 0
-    for (let i in arrayOfNumbers) {
-        sum += parseInt(arrayOfNumbers[i])
+function sum(arrayOfNumbers) {
+    let sum = 0;
+    for (let number of arrayOfNumbers) {
+        sum += number;
     }
-
-    return sum
+    return sum;
 }
 
 console.log(sum(range(1, 10)))
